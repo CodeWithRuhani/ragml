@@ -13,7 +13,7 @@ genai.configure(api_key=os.getenv('GEMINI_API_KEY'))
 model = genai.GenerativeModel("gemini-1.5-flash")
 print("Model loaded successfully. 🎊🥳")
 
-embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2", model_kwargs={'device': 'cpu'})
 print("Embeddings model loaded successfully. 🎊🥳")
 
 # --- Vector Store Setup ---
@@ -235,4 +235,5 @@ if user_input := st.chat_input("Ask me anything about Machine Learning..."):
         answer = generate_response(user_input)
         st.session_state.history.append(("Bot", answer))
     
+
     st.rerun()
