@@ -1,3 +1,4 @@
 streamlit 
 langchain-community
 google-generativeai
+sentence-transformers
